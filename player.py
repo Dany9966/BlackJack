@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import pygame
 
 from deck import Deck
 from playerStatus import PlayerStatus
@@ -151,3 +152,28 @@ class Player(object):
 
 player = Player()
 player.game()
+pygame.init()
+green = (0, 200, 150)
+moneyColor = (0, 255, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
+
+gameDisplay = pygame.display.set_mode((800, 600))
+pygame.display.set_caption('pyBlackJack')
+
+lead_x = 350
+lead_y = 350
+x_change = 0
+y_change = 0
+
+clock = pygame.time.Clock()
+
+gameExit = False
+while not gameExit:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            gameExit = True
+
+pygame.display.update()
+pygame.quit()
+quit()
