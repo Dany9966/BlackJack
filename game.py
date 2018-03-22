@@ -1,6 +1,5 @@
 import pygame
 import random
-import os
 
 pygame.init()
 
@@ -17,7 +16,7 @@ pygame.display.set_caption('Slither')
 img = pygame.image.load('snakeHead.png')
 
 clock = pygame.time.Clock()
-FPS = 15
+FPS = 10
 # direction = 'right'
 
 small_font = pygame.font.Font('NotoSansCJK-Black.ttc', 25)
@@ -89,7 +88,7 @@ def message_to_screen(msg, color, y_displace = 0, size = 'small'):
 def gameLoop():
     lead_x = display_width / 2
     lead_y = display_height / 2
-    lead_x_change = 10
+    lead_x_change = 20
     lead_y_change = 0
     snakelist = []
     snakeLength = 1
