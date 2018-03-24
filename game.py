@@ -32,6 +32,35 @@ def score(score):
     gameDisplay.blit(text, [0, 0])
 
 
+def pause():
+    paused = True
+    while paused:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    pygame.quit()
+                    quit()
+
+                elif event.key == pygame.K_c:
+                    paused = False
+
+            gameDisplay.fill(white)
+            message_to_screen("Paused",
+                              black,
+                              -100,
+                              "large")
+
+            message_to_screen("Press C to continue, or Q to quit",
+                              black,
+                              25)
+
+            pygame.display.update()
+            clock.tick(5)
+
+
 def randApppleGen():
     randAppleX = round(random.randrange(0, display_width - AppleThickness))  # / 10.0) * 10.0
     randAppleY = round(random.randrange(0, display_height - AppleThickness))  # / 10.0) * 10.0
@@ -62,7 +91,7 @@ def game_intro():
         message_to_screen('If you run into yourself, or the edges, you die',
                           black,
                           50)
-        message_to_screen('Press C to play or Q to quit',
+        message_to_screen('Press C to play, P to pause or Q to quit',
                           black,
                           180,
                           'medium')
@@ -163,6 +192,9 @@ def gameLoop():
                     lead_y_change = block_size
                     lead_x_change = 0
                     direction = 'down'
+
+                elif event.key == pygame.K_p:
+                    pause()
 
         if lead_x >= display_width or lead_x < 0 or lead_y >= display_height or lead_y < 0:
             gameOver = True
