@@ -27,6 +27,11 @@ large_font = pygame.font.Font('NotoSansCJK-Black.ttc', 80)
 AppleThickness = 30
 
 
+def score(score):
+    text = small_font.render("Score: " + str(score), True, black)
+    gameDisplay.blit(text, [0, 0])
+
+
 def randApppleGen():
     randAppleX = round(random.randrange(0, display_width - AppleThickness))  # / 10.0) * 10.0
     randAppleY = round(random.randrange(0, display_height - AppleThickness))  # / 10.0) * 10.0
@@ -177,6 +182,7 @@ def gameLoop():
             if eachSegment == snakeHead:
                 gameOver = True
         snake(block_size, snakelist)
+        score(snakeLength-1)
 
         pygame.display.update()
 
