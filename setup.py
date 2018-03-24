@@ -44,5 +44,5 @@ setup(
     license='',
     author='dani',
     author_email='',
-    description=''
+    description='', install_requires=['pygame']
 )
