@@ -215,6 +215,7 @@ def gameLoop():
                 gameOver = True
         snake(block_size, snakelist)
         score(snakeLength-1)
+        # pygame.draw.rect(gameDisplay, black, [50, 400, 100, 150])
 
         pygame.display.update()
 
